@@ -7,6 +7,13 @@ public class Pessoa {
     private String WhatsappId;
     private ArrayList AgendaContatos = new ArrayList<>();
 
+    Pessoa(){
+
+    }
+
+    private void setWhatsappId(){
+        
+    }
 
 
 }
