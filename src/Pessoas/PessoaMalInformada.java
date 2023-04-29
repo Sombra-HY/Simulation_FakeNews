@@ -1,6 +1,10 @@
-package Pessoa;
+package Pessoas;
 
-import Pessoa.Pessoa;
+import Pessoas.Pessoa;
 
 public class PessoaMalInformada extends Pessoa {
+    public PessoaMalInformada(){
+        setWhatsappId();
+    }
+
 }
