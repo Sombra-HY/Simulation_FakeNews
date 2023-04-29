@@ -3,7 +3,5 @@
 Projeto FakeNews.iml
 
 # But not these files...
-!.gitignore
-!/src/*
 
 
