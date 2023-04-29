@@ -1,7 +1,12 @@
-
+import Pessoas.*;
+import IAs.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Pessoa a = new Pessoa();
+        Pessoa b = new Pessoa();
+        Pessoa c = new Pessoa();
+        Pessoa d = new Pessoa();
+
     }
 }
