@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-
         Mundo teste = new Mundo();
         Date tempo_inicio = new Date();
 
