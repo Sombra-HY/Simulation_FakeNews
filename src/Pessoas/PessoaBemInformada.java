@@ -1,16 +1,22 @@
 package Pessoas;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class PessoaBemInformada extends Pessoa implements Imovable {
-    private Boolean protecaoFakenews = false;
+    private Boolean protecaoFakenews;
+    private final Timer time = new Timer();
     public PessoaBemInformada(){
+        protecaoFakenews = false;
         setWhatsappId();
         setCor(2);
         setX();
         setY();
 
     }
+    //Methods
+
     public void moveRandom() {
         switch (new Random().nextInt(4)) {
             case 0 -> moveUp();
@@ -21,7 +27,20 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
     }
 
     public void setProtecaoFakenews() {
-        this.protecaoFakenews = true;
+        class SetFalse extends TimerTask{
+            @Override
+            public void run() {
+                protecaoFakenews = false;
+            }
+        }
 
+        TimerTask tarefa = new SetFalse();
+        protecaoFakenews = true;
+        time.schedule(tarefa,5000);
+    }
+
+    //GETS
+    public Boolean getProtecaoFakenews() {
+        return protecaoFakenews;
     }
 }
