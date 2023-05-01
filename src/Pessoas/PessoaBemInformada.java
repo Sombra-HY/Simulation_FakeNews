@@ -3,7 +3,7 @@ package Pessoas;
 import java.util.Random;
 
 public class PessoaBemInformada extends Pessoa implements Imovable {
-
+    private Boolean protecaoFakenews = false;
     public PessoaBemInformada(){
         setWhatsappId();
         setCor(2);
@@ -11,8 +11,6 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
         setY();
 
     }
-
-
     public void moveRandom() {
         switch (new Random().nextInt(4)) {
             case 0 -> moveUp();
@@ -22,4 +20,8 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
         }
     }
 
+    public void setProtecaoFakenews() {
+        this.protecaoFakenews = true;
+
+    }
 }

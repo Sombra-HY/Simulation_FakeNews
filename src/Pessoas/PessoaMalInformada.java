@@ -1,13 +1,17 @@
 package Pessoas;
 
+import Pessoas.FakeNews.FakeNews;
+
 import java.util.Random;
 
 public class PessoaMalInformada extends Pessoa implements Imovable{
+    private FakeNews fakeNews;
     public PessoaMalInformada(){
         setWhatsappId();
         setCor(3);
         setX();
         setY();
+        this.fakeNews = new FakeNews();
     }
 
 

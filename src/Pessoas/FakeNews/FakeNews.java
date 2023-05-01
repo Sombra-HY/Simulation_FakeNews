@@ -1,7 +1,6 @@
 package Pessoas.FakeNews;
 
 public class FakeNews {
-    FakeNews(){
-
+    public FakeNews(){
     }
 }

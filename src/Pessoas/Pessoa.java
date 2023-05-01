@@ -8,12 +8,18 @@ public class Pessoa {
     private int x,y;
     private int cor;
     private String whatsappId;
-    private ArrayList<Object> agendaContatos = new ArrayList<>();
+    private ArrayList<String> agendaContatos = new ArrayList<>();
     private final Random numRandom = new Random();
 
     Pessoa(){
     }
     //Methodos
+
+    // Share whatsapp
+    protected void ShareWhatsapp(String ID){
+        if(!agendaContatos.contains(ID))
+            agendaContatos.add(ID);
+    }
 
     //Move all directions
     protected void moveUp(){
