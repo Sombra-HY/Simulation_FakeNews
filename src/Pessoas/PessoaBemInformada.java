@@ -11,12 +11,13 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
         protecaoFakenews = false;
         setWhatsappId();
         setCor(2);
-        setX();
-        setY();
+        setY(numRandomInterval(1,29));
+        setX(numRandomInterval(1,59));
 
     }
-    //Methods
 
+    //Methods
+    @Override
     public void moveRandom() {
         switch (new Random().nextInt(4)) {
             case 0 -> moveUp();
@@ -26,6 +27,38 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
         }
     }
 
+    @Override
+    public void moveUp(){
+        if(getY() == 1){
+            setY(29);
+        }
+        setY(getY()-1);
+    }
+
+    @Override
+    public void moveDown() {
+        if(getY() == 29){
+            setY(1);
+        }
+        setY(getY()+1);
+    }
+
+    @Override
+    public void moveRight() {
+        if(getX() == 59){
+            setX(1);
+        }
+        setX(getX()+1);
+    }
+
+    @Override
+    public void moveleft() {
+        if(getX() == 1){
+            setX(59);
+        }
+        setX(getX()-1);
+    }
+    //SETS
     public void setProtecaoFakenews() {
         class SetFalse extends TimerTask{
             @Override

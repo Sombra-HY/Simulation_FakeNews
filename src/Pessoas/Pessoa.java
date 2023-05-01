@@ -14,7 +14,9 @@ public class Pessoa {
     Pessoa(){
     }
     //Methodos
-
+    protected int numRandomInterval(int start, int end){
+        return numRandom.nextInt(end-start+1)+start;
+    }
     // Share whatsapp
     protected void ShareWhatsapp(String ID){
         if(!agendaContatos.contains(ID))
@@ -22,42 +24,36 @@ public class Pessoa {
     }
 
     //Move all directions
-    protected void moveUp(){
-        if(this.y == 1){
-            this.y = 28;
-            return;
-        }
-        this.y --;
-    }
-    protected void moveDown(){
-        if(this.y == 28){
-            this.y = 1;
-            return;
-        }
-        this.y ++;
-    }
-    protected void moveRight(){
-        if(this.x == 59){
-            this.x = 0;
-            return;
-        }
-        this.x ++;
-    }
-    protected void moveleft(){
-        if(this.x == 1){
-            this.x = 58;
-            return;
-        }
-        this.x--;
-    }
+
+//    protected void moveDown(){
+//        if(this.y == 28){
+//            this.y = 1;
+//            return;
+//        }
+//        this.y ++;
+//    }
+//    protected void moveRight(){
+//        if(this.x == 59){
+//            this.x = 0;
+//            return;
+//        }
+//        this.x ++;
+//    }
+//    protected void moveleft(){
+//        if(this.x == 1){
+//            this.x = 58;
+//            return;
+//        }
+//        this.x--;
+//    }
 
 
     //SETs
-    protected void setX() {
-        this.x = numRandom.nextInt(30);
+    protected void setX(int num) {
+        this.x = num;
     }
-    protected void setY() {
-        this.y = numRandom.nextInt(60);
+    protected void setY(int num) {
+        this.y = num;
     }
     protected void setCor(int cor){
         this.cor = cor;
