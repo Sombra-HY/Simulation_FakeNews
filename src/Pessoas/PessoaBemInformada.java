@@ -1,5 +1,7 @@
 package Pessoas;
 
+import Pessoas.FakeNews.FakeNews;
+
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -11,10 +13,17 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
         protecaoFakenews = false;
         setWhatsappId();
         setCor(2);
-        setY(numRandomInterval(1,29));
-        setX(numRandomInterval(1,59));
+        setY(numRandomInterval(29));
+        setX(numRandomInterval(59));
 
     }
+    public PessoaBemInformada(int X, int Y,String ID){
+        setX(X);
+        setY(Y);
+        super.setWhatsappId(ID);
+        setCor(2);
+    }
+
 
     //Methods
     @Override

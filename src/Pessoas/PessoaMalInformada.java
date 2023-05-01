@@ -9,10 +9,19 @@ public class PessoaMalInformada extends Pessoa implements Imovable{
     public PessoaMalInformada(){
         setWhatsappId();
         setCor(3);
-        setY(numRandomInterval(1,29));
-        setX(numRandomInterval(1,59));
+        setY(numRandomInterval(29));
+        setX(numRandomInterval(59));
         this.fakeNews = new FakeNews();
     }
+
+    public PessoaMalInformada(int X, int Y,String ID){
+        setX(X);
+        setY(Y);
+        super.setWhatsappId(ID);
+        setCor(3);
+        this.fakeNews = new FakeNews();
+    }
+
 
     //Methods
     public void moveRandom() {
