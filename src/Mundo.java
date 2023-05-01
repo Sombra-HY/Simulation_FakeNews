@@ -1,37 +1,38 @@
+import Pessoas.Imovable;
+import Pessoas.Pessoa;
+import Pessoas.PessoaBemInformada;
+import Pessoas.PessoaMalInformada;
+
 public class Mundo {
     public int[][] map = new int[30][60];
+    public Pessoa p1;
 
-    public Mundo(){
+    Mundo(){
         refazMudo();
-    }
-    
-    void atualizaMundo(){
+        p1 = new PessoaBemInformada();
+        atualizaMundo();
+
 
     }
-    void desenhaMundo(){
-        for(int i = 0; i < map.length; i++){
-            for(int j = 0; j < map[i].length; j++){
-                switch(map[i][j]){
-                    case 0:
-                        System.out.print("\033[47m \033[0m");
-                        break;
-                    case 1:
-                        System.out.print("\033[47m \033[0m");
-                        break;
-                    case 2:
-                        System.out.print("\033[45m \033[0m");
-                        break;
-                    case 3:
-                        System.out.print("\033[44m \033[0m");
-                        break;
-                    case 4:
-                        System.out.print("\033[41m \033[0m");
-                        break;
-                    case 5:
-                        System.out.print("\033[43m \033[0m");
-                        break;
-                    default:
-                        break;
+
+    public void atualizaMundo(){
+        refazMudo();
+        map[p1.getY()][p1.getX()] = p1.getCor();
+        Imovable a = (PessoaBemInformada) p1;
+        a.moveRandom();
+    }
+    public void desenhaMundo(){
+        for (int[] ints : map) {
+            for (int j = 0; j < map[0].length; j++) {
+                switch (ints[j]) {
+                    case 0 -> System.out.print("\033[40m \033[0m");
+                    case 1 -> System.out.print("\033[45m \033[0m");
+                    case 2 -> System.out.print("\033[50m \033[0m");
+                    case 3 -> System.out.print("\033[55m \033[0m");
+                    case 4 -> System.out.print("\033[60m \033[0m");
+                    case 5 -> System.out.print("\033[70m \033[0m");
+                    default -> {
+                    }
                 }
             }
             System.out.println();
@@ -41,7 +42,7 @@ public class Mundo {
         System.out.println();
     }
 
-    void refazMudo(){
+    public void refazMudo(){
         for(int eixoX = 0; eixoX < map.length; eixoX++ )
             for (int eixoY = 0; eixoY < map[0].length; eixoY++)
                 map[eixoX][eixoY] = 0;
