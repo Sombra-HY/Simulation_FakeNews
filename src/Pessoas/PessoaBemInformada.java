@@ -24,7 +24,6 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
         setCor(2);
     }
 
-
     //Methods
     @Override
     public void moveRandom() {
@@ -47,7 +46,7 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
     @Override
     public void moveDown() {
         if(getY() == 29){
-            setY(1);
+            setY(0);
         }
         setY(getY()+1);
     }
@@ -55,7 +54,7 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
     @Override
     public void moveRight() {
         if(getX() == 59){
-            setX(1);
+            setX(0);
         }
         setX(getX()+1);
     }
@@ -86,3 +85,16 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
         return protecaoFakenews;
     }
 }
+
+
+//   map=   {[][][],
+//           [][1][],
+//           [][][]}
+
+//  obj = [1][1]
+
+// cima = [--][1]
+// baixo = [++][1]
+
+// direi = [][++]
+// esquer = [][--]

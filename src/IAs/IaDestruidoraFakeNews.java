@@ -6,8 +6,11 @@ import Pessoas.PessoaBemInformada;
 
 public class IaDestruidoraFakeNews {
     private int cor;
-    IaDestruidoraFakeNews(){
+    private int x,y;
+    public IaDestruidoraFakeNews(){
         cor = 6;
+        this.x = 50;
+        this.y = 26;
     }
 
     public PessoaBemInformada changePessoaBem(Pessoa pessoa){
@@ -19,6 +22,14 @@ public class IaDestruidoraFakeNews {
     }
 
     //SETS
+
+    public int getY() {
+        return y;
+    }
+
+    public int getX() {
+        return x;
+    }
 
     public int getCor() {
         return cor;

@@ -6,8 +6,10 @@ import Pessoas.PessoaMalInformada;
 
 public class IaGeradoraFakeNews {
     private int cor;
-
-    IaGeradoraFakeNews(){
+    private int x,y;
+    public IaGeradoraFakeNews(){
+        this.x = 35;
+        this.y = 26;
         cor = 5;
     }
 
@@ -22,5 +24,14 @@ public class IaGeradoraFakeNews {
 
     public int getCor() {
         return cor;
+    }
+
+    //GETS
+    public int getY() {
+        return y;
+    }
+
+    public int getX() {
+        return x;
     }
 }

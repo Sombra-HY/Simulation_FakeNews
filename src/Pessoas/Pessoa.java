@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Pessoa {
-    private int x,y;
-    private int cor;
+    private Integer x,y;
+    private Integer cor;
     private String whatsappId;
     private ArrayList<String> agendaContatos = new ArrayList<>();
     private final Random numRandom = new Random();
@@ -15,7 +15,7 @@ public class Pessoa {
     }
     //Methodos
     protected int numRandomInterval(int end){
-        return numRandom.nextInt(end- 1 +1)+ 1;
+        return numRandom.nextInt(end)+ 1;
     }
     // Share whatsapp
     protected void ShareWhatsapp(String ID){
@@ -23,6 +23,7 @@ public class Pessoa {
             agendaContatos.add(ID);
     }
 
+//    protected boolean dector
 
     //SETs
     protected void setX(int num) {

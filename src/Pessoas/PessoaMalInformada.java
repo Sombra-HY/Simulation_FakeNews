@@ -5,13 +5,13 @@ import Pessoas.FakeNews.FakeNews;
 import java.util.Random;
 
 public class PessoaMalInformada extends Pessoa implements Imovable{
-    final private FakeNews fakeNews;
+    FakeNews fakeNews;
     public PessoaMalInformada(){
         setWhatsappId();
         setCor(3);
         setY(numRandomInterval(29));
         setX(numRandomInterval(59));
-        this.fakeNews = new FakeNews();
+        this.fakeNews= new FakeNews();
     }
 
     public PessoaMalInformada(int X, int Y,String ID){
@@ -44,7 +44,7 @@ public class PessoaMalInformada extends Pessoa implements Imovable{
     @Override
     public void moveDown() {
         if(getY() == 29){
-            setY(1);
+            setY(0);
         }
         setY(getY()+1);
     }
@@ -52,7 +52,7 @@ public class PessoaMalInformada extends Pessoa implements Imovable{
     @Override
     public void moveRight() {
         if(getX() == 59){
-            setX(1);
+            setX(0);
         }
         setX(getX()+1);
     }

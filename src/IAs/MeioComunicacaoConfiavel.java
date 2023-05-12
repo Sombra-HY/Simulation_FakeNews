@@ -6,12 +6,31 @@ import Pessoas.PessoaMalInformada;
 
 public class MeioComunicacaoConfiavel {
     private int cor;
+    private int x,y;
 
-    MeioComunicacaoConfiavel(){
+    public MeioComunicacaoConfiavel(){
+        this.x = 10;
+        this.y = 26;
         cor = 4;
     }
 
     public void ativaProtecaoFN(PessoaBemInformada pessoa){
         pessoa.setProtecaoFakenews();
+    }
+
+    //SETs
+
+    //GETS
+
+    public int getCor() {
+        return cor;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getX() {
+        return x;
     }
 }

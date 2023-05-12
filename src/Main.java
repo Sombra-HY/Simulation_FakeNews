@@ -1,18 +1,23 @@
+import Pessoas.Pessoa;
+import Pessoas.PessoaBemInformada;
+
 import java.util.Date;
 import java.io.IOException;
-import java.util.Scanner;
-
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         Mundo teste = new Mundo();
         Date tempo_inicio = new Date();
+        for (int i = 0; i <1 ; i++) {
+            teste.addPeople();
+        }
+
         while (true){
             Date current_time = new Date();
             System.out.println("=======================================");
             System.out.println("Tempo de Simulação: "
                     + (current_time.getTime()
-                    - tempo_inicio.getTime()) / 1000);
+                    - tempo_inicio.getTime()) / 1000 + "(s)");
             System.out.println("=======================================");
 
             teste.atualizaMundo();
