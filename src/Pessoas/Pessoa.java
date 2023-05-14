@@ -11,7 +11,17 @@ public class Pessoa {
     private ArrayList<String> agendaContatos = new ArrayList<>();
     private final Random numRandom = new Random();
 
-    Pessoa(){
+    Pessoa(Integer cor){
+        this.cor = cor;
+        this.x = numRandomInterval(59);
+        this.y = numRandomInterval(29);
+        setWhatsappId();
+    }
+    Pessoa(Integer cor, Integer x, Integer y,String whatsappId){
+        this.whatsappId = whatsappId;
+        this.cor = cor;
+        this.x = x;
+        this.y = y;
     }
     //Methodos
     protected int numRandomInterval(int end){

@@ -6,21 +6,17 @@ import java.util.Random;
 
 public class PessoaMalInformada extends Pessoa implements Imovable{
     FakeNews fakeNews;
+
+    public PessoaMalInformada(int X, int Y,String ID){
+        super(3,X,Y,ID);
+        this.fakeNews = new FakeNews();
+    }
     public PessoaMalInformada(){
-        setWhatsappId();
-        setCor(3);
-        setY(numRandomInterval(29));
-        setX(numRandomInterval(59));
+        super(3);
         this.fakeNews= new FakeNews();
     }
 
-    public PessoaMalInformada(int X, int Y,String ID){
-        setX(X);
-        setY(Y);
-        super.setWhatsappId(ID);
-        setCor(3);
-        this.fakeNews = new FakeNews();
-    }
+
 
 
     //Methods

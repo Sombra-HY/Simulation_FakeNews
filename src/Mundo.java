@@ -30,7 +30,7 @@ public class Mundo {
     public void addPeople(){
 //        listPessoas.add(new PessoaBemInformada());
         //TESTE
-        listPessoas.add(new PessoaBemInformada(34,26,""));
+        listPessoas.add(new PessoaBemInformada());
         //downs problema
     }
     public void atualizaMundo(){
@@ -51,24 +51,27 @@ public class Mundo {
 //        }
         for (int i = 0; i<listPessoas.size();i++) {
             map[listPessoas.get(i).getY()][listPessoas.get(i).getX()] = listPessoas.get(i).getCor();
-            Imovable a = (PessoaBemInformada) listPessoas.get(i);
+            Imovable a = (listPessoas.get(i) instanceof PessoaBemInformada)? (PessoaBemInformada) listPessoas.get(i): (PessoaMalInformada) listPessoas.get(i);
+//            Imovable a = (PessoaBemInformada) listPessoas.get(i);
             a.moveRandom();
-            System.out.println(
-                            "\nEm cima tem: " +getElementUp(listPessoas.get(i).getX(),listPessoas.get(i).getY())+
-                            "\nEm baixo tem: " +getElementDown(listPessoas.get(i).getX(),listPessoas.get(i).getY())+
-                                    "\nEm direita tem: " + getElementLeft(listPessoas.get(i).getY(),listPessoas.get(i).getX())+
-                                    "\nEm esquerda tem: "+ getElementLeft(listPessoas.get(i).getY(),listPessoas.get(i).getX())
-                    );
-            System.out.println(listPessoas.get(i).getX() + " AQUI O VALORD X");
-            System.out.println(listPessoas.get(i).getY() + " AQUI O VALORD Y");
-            if(     getElementUp(listPessoas.get(i).getY(),listPessoas.get(i).getX()) == 5 ||
-                    getElementDown(listPessoas.get(i).getY(),listPessoas.get(i).getX()) == 5 ||
-                    getElementLeft(listPessoas.get(i).getY(),listPessoas.get(i).getX()) == 5 ||
-                    getElementRight(listPessoas.get(i).getY(),listPessoas.get(i).getX()) == 5
-            ){
-                listPessoas.set(i,iGeraFakenews.changeMalInform((Pessoa) listPessoas.get(i)));
-                System.out.println("ATIVO");
+
+            // CONDICAO DE COL
+            int[] numeros ={
+                    getElementUp(listPessoas.get(i).getY(),listPessoas.get(i).getX()),
+                    getElementDown(listPessoas.get(i).getY(),listPessoas.get(i).getX()),
+                    getElementLeft(listPessoas.get(i).getY(),listPessoas.get(i).getX()),
+                    getElementRight(listPessoas.get(i).getY(),listPessoas.get(i).getX())};
+            for (int el :numeros ){
+                if (el == 5){
+                    if(listPessoas.get(i) instanceof PessoaBemInformada)
+                        listPessoas.set(i,iGeraFakenews.changeMalInform( listPessoas.get(i)));
+                } else if (el == 6) {
+                    if(listPessoas.get(i) instanceof PessoaMalInformada)
+                        listPessoas.set(i,iaDfakenews.changePessoaBem(listPessoas.get(i)));
+                }
+
             }
+
 
         }
 
@@ -151,8 +154,8 @@ public class Mundo {
     }
 
     public int getElementUp(int posPessoaY,int intposPessoaX){
-        System.out.println("a"+somaLimits(posPessoaY,-1,0,29));
-        System.out.println("c"+somaLimits(intposPessoaX,0,0,1));
+//        System.out.println("a"+somaLimits(posPessoaY,-1,0,29));
+//        System.out.println("c"+somaLimits(intposPessoaX,0,0,1));
         return map[somaLimits(posPessoaY,-1,0,29)][somaLimits(intposPessoaX,0,0,59)];
     }
     public int getElementDown(int posPessoaY,int intposPessoaX){
@@ -164,11 +167,4 @@ public class Mundo {
     public int getElementLeft(int posPessoaY,int intposPessoaX){
         return map[somaLimits(posPessoaY,0,0,59)][somaLimits(intposPessoaX,-1,0,59)];
     }
-
-
-
-
-
-
-
 }

@@ -10,19 +10,13 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
     private Boolean protecaoFakenews;
     private final Timer time = new Timer();
     public PessoaBemInformada(){
+        super(2);
         protecaoFakenews = false;
-        setWhatsappId();
-        setCor(2);
-        setY(numRandomInterval(29));
-        setX(numRandomInterval(59));
+    }
+    public PessoaBemInformada(int X, int Y, String ID){
+        super(2,X,Y,ID);
+    }
 
-    }
-    public PessoaBemInformada(int X, int Y,String ID){
-        setX(X);
-        setY(Y);
-        super.setWhatsappId(ID);
-        setCor(2);
-    }
 
     //Methods
     @Override
@@ -52,7 +46,7 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
     }
 
     @Override
-    public void moveRight() {
+    public void moveRight()  {
         if(getX() == 59){
             setX(0);
         }
