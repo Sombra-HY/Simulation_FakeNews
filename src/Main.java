@@ -26,6 +26,9 @@ public class Main {
                 if (el instanceof PessoaMalInformada){
                     pm++;
                     continue;
+                } else if (((PessoaBemInformada)el).getProtecaoFakenews()) {
+                    pp++;
+                    continue;
                 }
                 pn++;
             }
@@ -37,7 +40,9 @@ public class Main {
                     + (current_time.getTime()
                     - tempo_inicio.getTime()) / 1000 + "(s)");
             System.out.println("=======================================");
-            System.out.println(" Pessoas Bem informadas " + pn +" \033[42m  \033[0m "+ "Pessoas Mal Informadas \033[43m  \033[0m" + pm+ " ");
+            System.out.println(" Pessoas Bem informadas \033[42m  \033[0m :" + pn +
+                                "  Pessoas Mal Informadas \033[43m  \033[0m :" + pm +
+                                "  Pessoas com Protecao \033[41m  \033[0m :" + pp );
 
             System.out.println();
             System.out.println();

@@ -15,8 +15,6 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
         super(2,X,Y,ID);
         protecaoFakenews = false;
     }
-
-
     //Methods
     @Override
     public void moveRandom() {
@@ -72,7 +70,8 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
         TimerTask tarefa = new SetFalse();
         protecaoFakenews = true;
         setCor(1);
-        time.schedule(tarefa,5000);
+        time.schedule(tarefa,30000);
+        /* 30 segundos de protecao */
     }
 
     //GETS
@@ -81,15 +80,3 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
     }
 }
 
-
-//   map=   {[][][],
-//           [][1][],
-//           [][][]}
-
-//  obj = [1][1]
-
-// cima = [--][1]
-// baixo = [++][1]
-
-// direi = [][++]
-// esquer = [][--]

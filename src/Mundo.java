@@ -33,20 +33,7 @@ public class Mundo {
     }
     public void atualizaMundo(){
         refazMudo();
-//        for (Pessoa el : listPessoas) {
-//            map[el.getY()][el.getX()] = el.getCor();
-//            Imovable a = (PessoaBemInformada) el;
-//            a.moveRandom();
-//
-//           if(     getElementUp(el.getY(),el.getX()) == 5 ||
-//                   getElementDown(el.getY(),el.getX()) == 5 ||
-//                   getElementLeft(el.getY(),el.getX()) == 5 ||
-//                   getElementRight(el.getY(),el.getX()) == 5
-//           ){
-//
-//           }
-//
-//        }
+
         for (int i = 0; i<listPessoas.size();i++) {
             map[listPessoas.get(i).getY()][listPessoas.get(i).getX()] = listPessoas.get(i).getCor();
             Imovable a = (listPessoas.get(i) instanceof PessoaBemInformada)? (PessoaBemInformada) listPessoas.get(i): (PessoaMalInformada) listPessoas.get(i);
@@ -60,6 +47,11 @@ public class Mundo {
                     getElementLeft(listPessoas.get(i).getY(),listPessoas.get(i).getX()),
                     getElementRight(listPessoas.get(i).getY(),listPessoas.get(i).getX())};
             for (int el :numeros ){
+//                if(el == 1){
+//                    for (Pessoa)
+//                }
+
+
                 if(el == 4){
                     if (listPessoas.get(i) instanceof PessoaBemInformada && !((PessoaBemInformada) listPessoas.get(i)).getProtecaoFakenews())
                         iMeioComunic.ativaProtecaoFN((PessoaBemInformada) listPessoas.get(i));
@@ -71,12 +63,8 @@ public class Mundo {
                     if(listPessoas.get(i) instanceof PessoaMalInformada)
                         listPessoas.set(i,iaDfakenews.changePessoaBem(listPessoas.get(i)));
                 }
-
             }
-
-
         }
-
     }
 
     public void desenhaMundo(){
@@ -141,23 +129,12 @@ public class Mundo {
 
     }
 
-    // Valores ordenados
-//    public void detec(Pessoa el){
-//        switch (getElementUp(el.getY(),el.getX())){
-//            case 2-> el.
-//            default -> {}
-//        }
-//    }
-
-
     public int somaLimits(int atual, int soma, int startlimit, int endLimit){
         return (atual+soma > endLimit)?
                 (startlimit):(atual+soma < startlimit)?(endLimit):(atual+soma);
     }
 
     public int getElementUp(int posPessoaY,int intposPessoaX){
-//        System.out.println("a"+somaLimits(posPessoaY,-1,0,29));
-//        System.out.println("c"+somaLimits(intposPessoaX,0,0,1));
         return map[somaLimits(posPessoaY,-1,0,29)][somaLimits(intposPessoaX,0,0,59)];
     }
     public int getElementDown(int posPessoaY,int intposPessoaX){
