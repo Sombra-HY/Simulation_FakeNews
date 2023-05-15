@@ -1,7 +1,5 @@
 package Pessoas;
 
-import Pessoas.FakeNews.FakeNews;
-
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -15,6 +13,7 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
     }
     public PessoaBemInformada(int X, int Y, String ID){
         super(2,X,Y,ID);
+        protecaoFakenews = false;
     }
 
 
@@ -66,11 +65,13 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
             @Override
             public void run() {
                 protecaoFakenews = false;
+                setCor(2);
             }
         }
 
         TimerTask tarefa = new SetFalse();
         protecaoFakenews = true;
+        setCor(1);
         time.schedule(tarefa,5000);
     }
 

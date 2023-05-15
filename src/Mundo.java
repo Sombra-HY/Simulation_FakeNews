@@ -10,14 +10,12 @@ import java.util.ArrayList;
 
 public class Mundo {
     public int[][] map = new int[30][60];
-    public Pessoa p1;
-
     public IaDestruidoraFakeNews iaDfakenews;
     public IaGeradoraFakeNews iGeraFakenews;
     public MeioComunicacaoConfiavel iMeioComunic;
 
 
-    public ArrayList<Pessoa> listPessoas = new ArrayList<Pessoa>();
+    public ArrayList<Pessoa> listPessoas = new ArrayList<>();
 
     Mundo(){
         this.iaDfakenews = new IaDestruidoraFakeNews();
@@ -62,7 +60,11 @@ public class Mundo {
                     getElementLeft(listPessoas.get(i).getY(),listPessoas.get(i).getX()),
                     getElementRight(listPessoas.get(i).getY(),listPessoas.get(i).getX())};
             for (int el :numeros ){
-                if (el == 5){
+                if(el == 4){
+                    if (listPessoas.get(i) instanceof PessoaBemInformada && !((PessoaBemInformada) listPessoas.get(i)).getProtecaoFakenews())
+                        iMeioComunic.ativaProtecaoFN((PessoaBemInformada) listPessoas.get(i));
+                }
+                else if (el == 5){
                     if(listPessoas.get(i) instanceof PessoaBemInformada)
                         listPessoas.set(i,iGeraFakenews.changeMalInform( listPessoas.get(i)));
                 } else if (el == 6) {
@@ -83,9 +85,9 @@ public class Mundo {
             for (int j = 0; j < map[0].length; j++) {
                 switch (ints[j]) {
                     case 0 -> System.out.print("\033[40m  \033[0m"); // Vazio
-                    case 1 -> System.out.print("\033[41m  \033[0m"); //
+                    case 1 -> System.out.print("\033[41m  \033[0m"); // protecao
                     case 2 -> System.out.print("\033[42m  \033[0m"); // PessobemInf Verde
-                    case 3 -> System.out.print("\033[43m  \033[0m"); //
+                    case 3 -> System.out.print("\033[43m  \033[0m"); // PessoMalInf amarelo
                     case 4 -> System.out.print("\033[44m  \033[0m"); // MeioConfiavel azul Claro
                     case 5 -> System.out.print("\033[45m  \033[0m"); // Iageradora de fakeNews Roxo
                     case 6 -> System.out.print("\033[46m  \033[0m"); // IaDestruidora fakenwes Ciano
@@ -109,7 +111,7 @@ public class Mundo {
                 %d<--objecto--> %d
                       |
                       v
-                      %d\n
+                      %d
                 """,getElementUp(listPessoas.get(0).getY(),listPessoas.get(0).getX()),
                 getElementLeft(listPessoas.get(0).getY(),listPessoas.get(0).getX()),
                         getElementRight(listPessoas.get(0).getY(),listPessoas.get(0).getX()),
