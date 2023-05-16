@@ -3,6 +3,7 @@ package Pessoas;
 import java.util.ArrayList;
 
 import java.util.Random;
+import java.util.UUID;
 
 public class Pessoa {
     private Integer x,y;
@@ -28,7 +29,7 @@ public class Pessoa {
         return numRandom.nextInt(end)+ 1;
     }
     // Share whatsapp
-    protected void ShareWhatsapp(String ID){
+    public void ShareWhatsapp(String ID){
         if(!agendaContatos.contains(ID))
             agendaContatos.add(ID);
     }
@@ -50,7 +51,7 @@ public class Pessoa {
      * Gera Id Aleatorio
      **/
     protected void setWhatsappId() {
-        this.whatsappId = (System.currentTimeMillis()) + "ID";
+        this.whatsappId = UUID.randomUUID().toString();
     }
     protected void setWhatsappId(String ID) {
         this.whatsappId = ID;
@@ -71,4 +72,7 @@ public class Pessoa {
         return whatsappId;
     }
 
+    public ArrayList<String> getAgendaContatos() {
+        return agendaContatos;
+    }
 }
