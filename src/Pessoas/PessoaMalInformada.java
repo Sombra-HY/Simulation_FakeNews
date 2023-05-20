@@ -2,19 +2,17 @@ package Pessoas;
 
 import Pessoas.FakeNews.FakeNews;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class PessoaMalInformada extends Pessoa implements Imovable{
     FakeNews fakeNews;
 
-    public PessoaMalInformada(int X, int Y,String ID){
-        super(3,X,Y,ID);
+    public PessoaMalInformada(int X, int Y, String ID,ArrayList<String> agenda){
+        super(3,X,Y,ID,agenda);
         this.fakeNews = new FakeNews();
     }
-    public PessoaMalInformada(){
-        super(3);
-        this.fakeNews= new FakeNews();
-    }
+
 
 
 

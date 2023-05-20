@@ -24,13 +24,23 @@ public class Pessoa {
         this.x = x;
         this.y = y;
     }
+
+    Pessoa(Integer cor, Integer x, Integer y,String whatsappId, ArrayList<String> agendaContatos){
+        this.agendaContatos = (ArrayList<String>) agendaContatos.clone();
+        this.whatsappId = whatsappId;
+        this.cor = cor;
+        this.x = x;
+        this.y = y;
+    }
+
+
     //Methodos
     protected int numRandomInterval(int end){
         return numRandom.nextInt(end)+ 1;
     }
     // Share whatsapp
     public void ShareWhatsapp(String ID){
-        if(!agendaContatos.contains(ID))
+        if(!agendaContatos.contains(ID) && !ID.equals(whatsappId))
             agendaContatos.add(ID);
     }
 

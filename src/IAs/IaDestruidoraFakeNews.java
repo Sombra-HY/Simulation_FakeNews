@@ -5,8 +5,7 @@ import Pessoas.Pessoa;
 import Pessoas.PessoaBemInformada;
 
 public class IaDestruidoraFakeNews {
-    private int cor;
-    private int x,y;
+    private int x,y, cor;
     public IaDestruidoraFakeNews(){
         cor = 6;
         this.x = 50;
@@ -17,7 +16,8 @@ public class IaDestruidoraFakeNews {
         return new PessoaBemInformada(
                 pessoa.getX(),
                 pessoa.getY(),
-                pessoa.getWhatsappId()
+                pessoa.getWhatsappId(),
+                pessoa.getAgendaContatos()
         ) ;
     }
 

@@ -89,6 +89,9 @@ public class Mundo {
 //            System.out.println(listPessoas.get(i).getY()+" "+listPessoas.get(i).getX() +
 //                    " "+numeros[0]+" "+numeros[1]+" "+numeros[2]+" "+numeros[3]);
             for (int j = 0; j < numeros.length; j++) {
+
+
+
                 int el = numeros[j];
 //                if (el == 2) {
 //                    //UP
@@ -139,14 +142,18 @@ public class Mundo {
                 if (el == 4) {
                     if (listPessoas.get(i) instanceof PessoaBemInformada && !((PessoaBemInformada) listPessoas.get(i)).getProtecaoFakenews())
                         iMeioComunic.ativaProtecaoFN((PessoaBemInformada) listPessoas.get(i));
-                } else if (el == 5) {
+                }
+                else if (el == 5) {
                     if (listPessoas.get(i) instanceof PessoaBemInformada) {
 
                         if(!((PessoaBemInformada) listPessoas.get(i)).getProtecaoFakenews()){
                             listPessoas.set(i, iGeraFakenews.changeMalInform(listPessoas.get(i)));
+                            System.out.println("AQUI147" + listPessoas.get(i).getAgendaContatos());
 
                             for (String id: listPessoas.get(i).getAgendaContatos()) {
-                                System.out.println(serchPeopleid(id) == null ?"NULL":"bi");
+                                System.out.println("FOI!!");
+
+                                System.out.println((serchPeopleid(id) == null) ?"NULL":"bi");
 
                                 if(serchPeopleid(id) instanceof PessoaBemInformada){
                                     System.out.println("CONTAMINO");
@@ -161,7 +168,8 @@ public class Mundo {
                         }
 
                     }
-                } else if (el == 6) {
+                }
+                else if (el == 6) {
                     if (listPessoas.get(i) instanceof PessoaMalInformada)
                         listPessoas.set(i, iaDfakenews.changePessoaBem(listPessoas.get(i)));
                 }
@@ -174,7 +182,7 @@ public class Mundo {
 
     public void desenhaMundo(){
         //ALCONTATOS
-        contatosAll();
+
 
         for (int[] ints : map) {
             for (int j = 0; j < map[0].length; j++) {
@@ -267,7 +275,7 @@ public class Mundo {
     public void contatosAll(){
         for (Pessoa p1:listPessoas) {
             for (Pessoa p2:listPessoas) {
-                p2.getAgendaContatos().add(p1.getWhatsappId());
+                p1.ShareWhatsapp(p2.getWhatsappId());
             }
         }
     }

@@ -1,7 +1,6 @@
 package IAs;
 
 import Pessoas.Pessoa;
-import Pessoas.PessoaBemInformada;
 import Pessoas.PessoaMalInformada;
 
 public class IaGeradoraFakeNews {
@@ -17,7 +16,8 @@ public class IaGeradoraFakeNews {
         return new PessoaMalInformada(
                 pessoa.getX(),
                 pessoa.getY(),
-                pessoa.getWhatsappId());
+                pessoa.getWhatsappId(),
+                pessoa.getAgendaContatos());
     }
 
     //SETS

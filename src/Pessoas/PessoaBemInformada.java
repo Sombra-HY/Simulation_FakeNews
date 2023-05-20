@@ -1,5 +1,6 @@
 package Pessoas;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -11,8 +12,8 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
         super(2);
         protecaoFakenews = false;
     }
-    public PessoaBemInformada(int X, int Y, String ID){
-        super(2,X,Y,ID);
+    public PessoaBemInformada(int X, int Y, String ID, ArrayList<String> agenda){
+        super(2,X,Y,ID,agenda);
         protecaoFakenews = false;
     }
     //Methods
