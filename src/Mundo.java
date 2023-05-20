@@ -170,8 +170,21 @@ public class Mundo {
                     }
                 }
                 else if (el == 6) {
-                    if (listPessoas.get(i) instanceof PessoaMalInformada)
+                    if (listPessoas.get(i) instanceof PessoaMalInformada) {
                         listPessoas.set(i, iaDfakenews.changePessoaBem(listPessoas.get(i)));
+
+                        for (String id: listPessoas.get(i).getAgendaContatos()) {
+
+                            if(serchPeopleid(id) instanceof PessoaMalInformada){
+                                listPessoas.set(
+                                        listPessoas.indexOf(serchPeopleid(id)),
+                                        iaDfakenews.changePessoaBem(serchPeopleid(id))
+                                );
+                            }
+
+                        }
+
+                    }
                 }
             }
             //AQUI TESTE
