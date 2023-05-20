@@ -8,10 +8,12 @@ import java.util.TimerTask;
 public class PessoaBemInformada extends Pessoa implements Imovable {
     private Boolean protecaoFakenews;
     private final Timer time = new Timer();
+    //Construtor padrao
     public PessoaBemInformada(){
         super(2);
         protecaoFakenews = false;
     }
+    //Construtor para duplicaocao de objeto/ Transformacao
     public PessoaBemInformada(int X, int Y, String ID, ArrayList<String> agenda){
         super(2,X,Y,ID,agenda);
         protecaoFakenews = false;
@@ -26,7 +28,6 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
             case 3 -> moveRight();
         }
     }
-
     @Override
     public void moveUp(){
         if(getY() == 1){
@@ -34,7 +35,6 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
         }
         setY(getY()-1);
     }
-
     @Override
     public void moveDown() {
         if(getY() == 29){
@@ -42,7 +42,6 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
         }
         setY(getY()+1);
     }
-
     @Override
     public void moveRight()  {
         if(getX() == 59){
@@ -58,7 +57,10 @@ public class PessoaBemInformada extends Pessoa implements Imovable {
         }
         setX(getX()-1);
     }
-    //SETS
+
+    /**
+     * Faz esta Pessoa ficar imune de ser transformada no tipo MalInformada durante 30 Segundos, mundando o atributo cor durante o periodo
+     * */
     public void setProtecaoFakenews() {
         class SetFalse extends TimerTask{
             @Override

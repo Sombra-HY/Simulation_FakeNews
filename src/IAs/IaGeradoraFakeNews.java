@@ -12,7 +12,9 @@ public class IaGeradoraFakeNews {
         this.y = 26;
         cor = 5;
     }
-
+    /**
+     * Copia os Atributos da pessoa e transforma esta instancia em PessoaMalINFORMADA
+     */
     public PessoaMalInformada changeMalInform(Pessoa pessoa){
         return new PessoaMalInformada(
                 pessoa.getX(),
@@ -21,17 +23,13 @@ public class IaGeradoraFakeNews {
                 pessoa.getAgendaContatos());
     }
 
-    //SETS
-
+    //GETS
     public int getCor() {
         return cor;
     }
-
-    //GETS
     public int getY() {
         return y;
     }
-
     public int getX() {
         return x;
     }

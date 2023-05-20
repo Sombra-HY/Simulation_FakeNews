@@ -12,23 +12,21 @@ public class MeioComunicacaoConfiavel {
         this.y = 26;
         cor = 4;
     }
-
+    /**
+     * Ativa protecao da pessoa durante 30 segundos impossibilitando de ser transformada em PessoaMalInformada
+     * */
     public void ativaProtecaoFN(PessoaBemInformada pessoa){
         pessoa.setProtecaoFakenews();
     }
 
-    //SETs
 
     //GETS
-
     public int getCor() {
         return cor;
     }
-
     public int getY() {
         return y;
     }
-
     public int getX() {
         return x;
     }

@@ -26,61 +26,46 @@ public class Mundo {
     }
 
     public void addPeople(){
-//        listPessoas.add(new PessoaBemInformada());
-        //TESTE
         listPessoas.add(new PessoaBemInformada());
-        //downs problema
     }
     public void atualizaMundo(){
         refazMudo();
+
         // contato entre pessoas
         for (int i = 0; i <listPessoas.size() ; i++) {
 
 
             for (Pessoa listPessoa : listPessoas) {
+                // colisoes entre o mesmo lugar, direita, esqueda, em cima e em baixo.
 
-
-                //self
                 if (listPessoas.get(i).getY() == (listPessoa.getY()) &&
                         listPessoas.get(i).getX() == listPessoa.getX()) {
-
-                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId());
+                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId()); // o mesmo componente
 
                 } else if (listPessoas.get(i).getY() == (listPessoa.getY() - 1) &&
                         listPessoas.get(i).getX() == listPessoa.getX()) {
-
-                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId());
-
+                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId()); // Componente em cima
 
                 } else if (listPessoas.get(i).getY() == (listPessoa.getY() + 1) &&
                         listPessoas.get(i).getX() == listPessoa.getX()) {
-
-                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId());
-
+                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId()); // Componente em baixo
 
                 } else if (listPessoas.get(i).getY() == listPessoa.getY() &&
                         listPessoas.get(i).getX() == (listPessoa.getX() + 1)) {
-
-                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId());
-
+                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId()); // Componente na direita
 
                 } else if (listPessoas.get(i).getY() == listPessoa.getY() &&
                         listPessoas.get(i).getX() == (listPessoa.getX() - 1)) {
-
-                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId());
-
+                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId()); // Componente na esquerda
 
                 }
-
-
             }
         }
-
-//        quant de pessoas
+        // Colisao entre IAS
         for (int i = 0; i<listPessoas.size();i++) {
             map[listPessoas.get(i).getY()][listPessoas.get(i).getX()] = listPessoas.get(i).getCor();
 
-            // CONDICAO DE COLisao entre IAS
+            // array com elementos em cima, baixo, esquerda, direita em funcao do mapa
             int[] numeros ={
                     getElementUp(listPessoas.get(i).getY(),listPessoas.get(i).getX()),
                     getElementDown(listPessoas.get(i).getY(),listPessoas.get(i).getX()),
@@ -91,35 +76,35 @@ public class Mundo {
                 if (el == 4) {
                     if (listPessoas.get(i) instanceof PessoaBemInformada && !((PessoaBemInformada) listPessoas.get(i)).getProtecaoFakenews())
                         iMeioComunic.ativaProtecaoFN((PessoaBemInformada) listPessoas.get(i));
-                } else if (el == 5) {
+                    // se for um elemento 4 IaMeiodecomunicao ativara a protecao desta pessoa
+                }
+                else if (el == 5) {
                     if (listPessoas.get(i) instanceof PessoaBemInformada) {
 
                         if (!((PessoaBemInformada) listPessoas.get(i)).getProtecaoFakenews()) {
                             listPessoas.set(i, iGeraFakenews.changeMalInform(listPessoas.get(i)));
-                            System.out.println("AQUI147" + listPessoas.get(i).getAgendaContatos());
+                            // se for um elemento 5 IaGeradoradeFakenews ativara a transformara esta em malinformada
 
                             for (String id : listPessoas.get(i).getAgendaContatos()) {
-                                System.out.println("FOI!!");
-
-                                System.out.println((serchPeopleid(id) == null) ? "NULL" : "bi");
-
                                 if (serchPeopleid(id) instanceof PessoaBemInformada) {
-                                    System.out.println("CONTAMINO");
                                     listPessoas.set(
                                             listPessoas.indexOf(serchPeopleid(id)),
                                             iGeraFakenews.changeMalInform(serchPeopleid(id))
                                     );
                                 }
-
+                            // todos contatos desta serao transformadas em Malinformadas
                             }
 
                         }
 
                     }
-                } else if (el == 6) {
+                }
+
+                else if (el == 6) {
                     if (listPessoas.get(i) instanceof PessoaMalInformada) {
                         listPessoas.set(i, iaDfakenews.changePessoaBem(listPessoas.get(i)));
-
+                        // Destruidora de fakenews, vai transformar esta pessoa em bem informada
+                        // além de transformar todos seus contatos neste tipo.
                         for (String id : listPessoas.get(i).getAgendaContatos()) {
 
                             if (serchPeopleid(id) instanceof PessoaMalInformada) {
@@ -134,16 +119,13 @@ public class Mundo {
                     }
                 }
             }
-            //AQUI TESTE
+            // referencio o tipo para Imovable movimentar tanto uma pessoa mal informada quanto bem informada
             Imovable a = (listPessoas.get(i) instanceof PessoaBemInformada)? (PessoaBemInformada) listPessoas.get(i): (PessoaMalInformada) listPessoas.get(i);
             a.moveRandom();
         }
     }
 
     public void desenhaMundo(){
-        //ALCONTATOS
-
-
         for (int[] ints : map) {
             for (int j = 0; j < map[0].length; j++) {
                 switch (ints[j]) {
@@ -165,20 +147,12 @@ public class Mundo {
         System.out.println();
     }
 
-    // teste de posicao
-    public static void main(String[] args) {
-        Mundo a = new Mundo();
-        a.addPeople();
-//        a.atualizaMundo();
-        a.desenhaMundo();
-    }
-
     public void refazMudo(){
         for(int eixoX = 0; eixoX < map.length; eixoX++ )
             for (int eixoY = 0; eixoY < map[0].length; eixoY++)
                 map[eixoX][eixoY] = 0;
 
-        // IAS
+        // IAS Posicoes
 
         map[iMeioComunic.getY()][iMeioComunic.getX()] = iMeioComunic.getCor();
         map[iGeraFakenews.getY()][iGeraFakenews.getX()] = iGeraFakenews.getCor();
@@ -186,36 +160,45 @@ public class Mundo {
 
     }
 
-    public int somaLimits(int atual, int soma, int startlimit, int endLimit){
+   /**
+   *  Retorna um (int.), com base em soma ciclica definindo o número
+   *  atual, os limites e a soma +1 ou -1.
+    * <br><br>
+   *    Exemplos:
+   *    somaCiclica(2, 1, 0, 2) -> 0
+   *    somaCiclica(0, -1, 0, 2) -> 2
+   * */
+    public int somaCiclica(int atual, int soma, int startlimit, int endLimit){
         return (atual+soma > endLimit)?
                 (startlimit):(atual+soma < startlimit)?(endLimit):(atual+soma);
     }
-
+    /** pega o elemento de cima do mapa em funca das posicoes */
     public int getElementUp(int posPessoaY,int intposPessoaX){
-        return map[somaLimits(posPessoaY,-1,0,29)][somaLimits(intposPessoaX,0,0,59)];
+        return map[somaCiclica(posPessoaY,-1,0,29)][somaCiclica(intposPessoaX,0,0,59)];
     }
+    /** pega o elemento de baixo do mapa em funca das posicoes */
     public int getElementDown(int posPessoaY,int intposPessoaX){
-        return map[somaLimits(posPessoaY,1,0,29)][somaLimits(intposPessoaX,0,0,59)];
+        return map[somaCiclica(posPessoaY,1,0,29)][somaCiclica(intposPessoaX,0,0,59)];
     }
+    /** pega o elemento da direita do mapa em funca das posicoes */
     public int getElementRight(int posPessoaY,int intposPessoaX){
-        return map[somaLimits(posPessoaY,0,0,59)][somaLimits(intposPessoaX,1,0,59)];
+        return map[somaCiclica(posPessoaY,0,0,59)][somaCiclica(intposPessoaX,1,0,59)];
     }
+    /** pega o elemento da esquerda do mapa em funca das posicoes */
     public int getElementLeft(int posPessoaY,int intposPessoaX){
-        return map[somaLimits(posPessoaY,0,0,59)][somaLimits(intposPessoaX,-1,0,59)];
+        return map[somaCiclica(posPessoaY,0,0,59)][somaCiclica(intposPessoaX,-1,0,59)];
     }
-
+    /**
+    * Procura na lista de pessoas do Mundo a ID String
+     * @return  retorna o objeto Pessoa que contem a ID
+    */
     public Pessoa serchPeopleid(String id){
         for(Pessoa el : listPessoas){
-            System.out.println("AQUI__"+ el.getWhatsappId() + " = " + id + " " + el.getWhatsappId().equals(id) );
             if(el.getWhatsappId().equals(id)) {
-                System.out.println("s?");
                 return el;
             }
         }
         return null;
     }
-
-
-
 }
 

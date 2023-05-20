@@ -13,7 +13,9 @@ public class IaDestruidoraFakeNews {
         this.x = 50;
         this.y = 26;
     }
-
+    /**
+     * Copia os Atributos da pessoa e transforma esta instancia em PessoaBemINFORMADA
+    */
     public PessoaBemInformada changePessoaBem(Pessoa pessoa){
         return new PessoaBemInformada(
                 pessoa.getX(),
@@ -22,9 +24,6 @@ public class IaDestruidoraFakeNews {
                 pessoa.getAgendaContatos()
         ) ;
     }
-
-    //SETS
-
     public int getY() {
         return y;
     }

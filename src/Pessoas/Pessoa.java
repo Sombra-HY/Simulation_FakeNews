@@ -11,14 +11,14 @@ public class Pessoa {
     private String whatsappId;
     private ArrayList<String> agendaContatos = new ArrayList<>();
     private final Random numRandom = new Random();
-
+    // Construtor padrao
     Pessoa(Integer cor){
         this.cor = cor;
         this.x = numRandomInterval(59);
         this.y = numRandomInterval(29);
         setWhatsappId();
     }
-
+    //Construtor para troca de tipo e duplicacao de objeto ( Beminformada e Malinformada)
     Pessoa(Integer cor, Integer x, Integer y,String whatsappId, ArrayList<String> agendaContatos){
         this.agendaContatos = (ArrayList<String>) agendaContatos.clone();
         this.whatsappId = whatsappId;
@@ -32,13 +32,14 @@ public class Pessoa {
     protected int numRandomInterval(int end){
         return numRandom.nextInt(end)+ 1;
     }
-    // Share whatsapp
+    /**
+    * Verifica se contem o elemento ID na agenda e adiciona caso
+    * nao tenha e difera do whatsappId
+    */
     public void ShareWhatsapp(String ID){
         if(!agendaContatos.contains(ID) && !ID.equals(whatsappId))
             agendaContatos.add(ID);
     }
-
-//    protected boolean dector
 
     //SETs
     protected void setX(int num) {
@@ -50,14 +51,9 @@ public class Pessoa {
     protected void setCor(int cor){
         this.cor = cor;
     }
-
-    /**
-     * Gera Id Aleatorio
-     **/
     protected void setWhatsappId() {
         this.whatsappId = UUID.randomUUID().toString();
     }
-
 
     //GETs
     public int getX() {
@@ -72,7 +68,6 @@ public class Pessoa {
     public String getWhatsappId() {
         return whatsappId;
     }
-
     public ArrayList<String> getAgendaContatos() {
         return agendaContatos;
     }

@@ -13,10 +13,6 @@ public class PessoaMalInformada extends Pessoa implements Imovable{
         this.fakeNews = new FakeNews();
     }
 
-
-
-
-
     //Methods
     public void moveRandom() {
         switch (new Random().nextInt(4)) {
