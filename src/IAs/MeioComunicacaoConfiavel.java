@@ -1,12 +1,11 @@
 package IAs;
 
-import Pessoas.Imovable;
 import Pessoas.PessoaBemInformada;
-import Pessoas.PessoaMalInformada;
 
 public class MeioComunicacaoConfiavel {
-    private int cor;
-    private int x,y;
+    private final int cor;
+    private final int x;
+    private final int y;
 
     public MeioComunicacaoConfiavel(){
         this.x = 10;

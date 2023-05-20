@@ -4,8 +4,9 @@ import Pessoas.Pessoa;
 import Pessoas.PessoaMalInformada;
 
 public class IaGeradoraFakeNews {
-    private int cor;
-    private int x,y;
+    private final int cor;
+    private final int x;
+    private final int y;
     public IaGeradoraFakeNews(){
         this.x = 35;
         this.y = 26;

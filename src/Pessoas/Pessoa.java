@@ -18,12 +18,6 @@ public class Pessoa {
         this.y = numRandomInterval(29);
         setWhatsappId();
     }
-    Pessoa(Integer cor, Integer x, Integer y,String whatsappId){
-        this.whatsappId = whatsappId;
-        this.cor = cor;
-        this.x = x;
-        this.y = y;
-    }
 
     Pessoa(Integer cor, Integer x, Integer y,String whatsappId, ArrayList<String> agendaContatos){
         this.agendaContatos = (ArrayList<String>) agendaContatos.clone();
@@ -62,9 +56,6 @@ public class Pessoa {
      **/
     protected void setWhatsappId() {
         this.whatsappId = UUID.randomUUID().toString();
-    }
-    protected void setWhatsappId(String ID) {
-        this.whatsappId = ID;
     }
 
 

@@ -37,37 +37,37 @@ public class Mundo {
         for (int i = 0; i <listPessoas.size() ; i++) {
 
 
-            for (int j = 0; j <listPessoas.size(); j++) {
+            for (Pessoa listPessoa : listPessoas) {
 
 
                 //self
-                if(listPessoas.get(i).getY() == (listPessoas.get(j).getY()) &&
-                    listPessoas.get(i).getX() == listPessoas.get(j).getX()){
+                if (listPessoas.get(i).getY() == (listPessoa.getY()) &&
+                        listPessoas.get(i).getX() == listPessoa.getX()) {
 
-                        listPessoas.get(i).ShareWhatsapp(listPessoas.get(j).getWhatsappId());
+                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId());
 
-                } else if (listPessoas.get(i).getY() == (listPessoas.get(j).getY() - 1) &&
-                        listPessoas.get(i).getX() == listPessoas.get(j).getX()) {
+                } else if (listPessoas.get(i).getY() == (listPessoa.getY() - 1) &&
+                        listPessoas.get(i).getX() == listPessoa.getX()) {
 
-                        listPessoas.get(i).ShareWhatsapp(listPessoas.get(j).getWhatsappId());
-
-
-                } else if (listPessoas.get(i).getY() ==(listPessoas.get(j).getY() + 1) &&
-                        listPessoas.get(i).getX() == listPessoas.get(j).getX()) {
-
-                        listPessoas.get(i).ShareWhatsapp(listPessoas.get(j).getWhatsappId());
+                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId());
 
 
-                } else if (listPessoas.get(i).getY() ==listPessoas.get(j).getY() &&
-                        listPessoas.get(i).getX() == (listPessoas.get(j).getX() + 1)) {
+                } else if (listPessoas.get(i).getY() == (listPessoa.getY() + 1) &&
+                        listPessoas.get(i).getX() == listPessoa.getX()) {
 
-                        listPessoas.get(i).ShareWhatsapp(listPessoas.get(j).getWhatsappId());
+                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId());
 
 
-                } else if (listPessoas.get(i).getY() ==listPessoas.get(j).getY() &&
-                        listPessoas.get(i).getX() == (listPessoas.get(j).getX() - 1)) {
+                } else if (listPessoas.get(i).getY() == listPessoa.getY() &&
+                        listPessoas.get(i).getX() == (listPessoa.getX() + 1)) {
 
-                        listPessoas.get(i).ShareWhatsapp(listPessoas.get(j).getWhatsappId());
+                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId());
+
+
+                } else if (listPessoas.get(i).getY() == listPessoa.getY() &&
+                        listPessoas.get(i).getX() == (listPessoa.getX() - 1)) {
+
+                    listPessoas.get(i).ShareWhatsapp(listPessoa.getWhatsappId());
 
 
                 }
@@ -86,76 +86,24 @@ public class Mundo {
                     getElementDown(listPessoas.get(i).getY(),listPessoas.get(i).getX()),
                     getElementLeft(listPessoas.get(i).getY(),listPessoas.get(i).getX()),
                     getElementRight(listPessoas.get(i).getY(),listPessoas.get(i).getX())};
-//            System.out.println(listPessoas.get(i).getY()+" "+listPessoas.get(i).getX() +
-//                    " "+numeros[0]+" "+numeros[1]+" "+numeros[2]+" "+numeros[3]);
-            for (int j = 0; j < numeros.length; j++) {
-
-
-
-                int el = numeros[j];
-//                if (el == 2) {
-//                    //UP
-//                    if(j==0){
-//                        listPessoas.get(i).ShareWhatsapp(
-//                        (serchPeopleCord(listPessoas.get(i).getY(),listPessoas.get(i).getX(),"UP").getWhatsappId()));
-//                        System.out.println(listPessoas.get(i).getAgendaContatos());
-//                        continue;
-//                    }
-//                    if (j==1) {
-//                        listPessoas.get(i).ShareWhatsapp(
-//                                (serchPeopleCord(listPessoas.get(i).getY(),listPessoas.get(i).getX(),"DOWN").getWhatsappId()));
-//                        System.out.println(listPessoas.get(i).getAgendaContatos());
-//                        continue;
-//                    }
-//                    if( j==2 ){
-//                        listPessoas.get(i).ShareWhatsapp(
-//                                (serchPeopleCord(listPessoas.get(i).getY(),listPessoas.get(i).getX(),"LEFT").getWhatsappId()));
-//                        System.out.println(listPessoas.get(i).getAgendaContatos());
-//                        continue;
-//                    }
-//                    listPessoas.get(i).ShareWhatsapp(
-//                            (serchPeopleCord(listPessoas.get(i).getY(),listPessoas.get(i).getX(),"RIGHT").getWhatsappId()));
-//                    System.out.println(listPessoas.get(i).getAgendaContatos());
-//                    continue;
-//
-////                    listPessoas.get(i).ShareWhatsapp();//AQUi
-//                }
-//                if(el == 2 ){
-//                    if(listPessoas.get(i) instanceof PessoaBemInformada){
-//                        int x = listPessoas.get(i).getX();
-//                        int y = listPessoas.get(i).getY();
-//                        System.out.println("CORDENADA"+x+"-"+y);
-//
-//                        try{
-//                            String ID = serchPeopleCord(y,x,
-//                                    ((j==0)?"UP":(j==1)?"DOWN":(j==2)?"LEFT":"RIGHT")).getWhatsappId();
-//                            listPessoas.get(i).ShareWhatsapp(ID);
-//                            System.out.println("ELE GOSTA");
-//                            System.out.println(listPessoas.get(i).getAgendaContatos());
-//                        }catch(NullPointerException e){
-//                            continue;
-//                        }
-//
-//                    }
-//                }
+            for (int el : numeros) {
 
                 if (el == 4) {
                     if (listPessoas.get(i) instanceof PessoaBemInformada && !((PessoaBemInformada) listPessoas.get(i)).getProtecaoFakenews())
                         iMeioComunic.ativaProtecaoFN((PessoaBemInformada) listPessoas.get(i));
-                }
-                else if (el == 5) {
+                } else if (el == 5) {
                     if (listPessoas.get(i) instanceof PessoaBemInformada) {
 
-                        if(!((PessoaBemInformada) listPessoas.get(i)).getProtecaoFakenews()){
+                        if (!((PessoaBemInformada) listPessoas.get(i)).getProtecaoFakenews()) {
                             listPessoas.set(i, iGeraFakenews.changeMalInform(listPessoas.get(i)));
                             System.out.println("AQUI147" + listPessoas.get(i).getAgendaContatos());
 
-                            for (String id: listPessoas.get(i).getAgendaContatos()) {
+                            for (String id : listPessoas.get(i).getAgendaContatos()) {
                                 System.out.println("FOI!!");
 
-                                System.out.println((serchPeopleid(id) == null) ?"NULL":"bi");
+                                System.out.println((serchPeopleid(id) == null) ? "NULL" : "bi");
 
-                                if(serchPeopleid(id) instanceof PessoaBemInformada){
+                                if (serchPeopleid(id) instanceof PessoaBemInformada) {
                                     System.out.println("CONTAMINO");
                                     listPessoas.set(
                                             listPessoas.indexOf(serchPeopleid(id)),
@@ -168,14 +116,13 @@ public class Mundo {
                         }
 
                     }
-                }
-                else if (el == 6) {
+                } else if (el == 6) {
                     if (listPessoas.get(i) instanceof PessoaMalInformada) {
                         listPessoas.set(i, iaDfakenews.changePessoaBem(listPessoas.get(i)));
 
-                        for (String id: listPessoas.get(i).getAgendaContatos()) {
+                        for (String id : listPessoas.get(i).getAgendaContatos()) {
 
-                            if(serchPeopleid(id) instanceof PessoaMalInformada){
+                            if (serchPeopleid(id) instanceof PessoaMalInformada) {
                                 listPessoas.set(
                                         listPessoas.indexOf(serchPeopleid(id)),
                                         iaDfakenews.changePessoaBem(serchPeopleid(id))
@@ -218,23 +165,6 @@ public class Mundo {
         System.out.println();
     }
 
-    public void extracted(int i) {
-        System.out.printf("X: %d Y:%d\n",listPessoas.get(i).getX(),listPessoas.get(i).getY());
-        System.out.printf("""
-                      %d
-                      ^
-                      |
-                %d<--objecto--> %d
-                      |
-                      v
-                      %d
-                """,getElementUp(listPessoas.get(i).getY(),listPessoas.get(i).getX()),
-                getElementLeft(listPessoas.get(i).getY(),listPessoas.get(i).getX()),
-                        getElementRight(listPessoas.get(i).getY(),listPessoas.get(i).getX()),
-                                getElementDown(listPessoas.get(i).getY(),listPessoas.get(i).getX())
-
-                );
-    }
     // teste de posicao
     public static void main(String[] args) {
         Mundo a = new Mundo();
@@ -285,13 +215,7 @@ public class Mundo {
         return null;
     }
 
-    public void contatosAll(){
-        for (Pessoa p1:listPessoas) {
-            for (Pessoa p2:listPessoas) {
-                p1.ShareWhatsapp(p2.getWhatsappId());
-            }
-        }
-    }
+
 
 }
 

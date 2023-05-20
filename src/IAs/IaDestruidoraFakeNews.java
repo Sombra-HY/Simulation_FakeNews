@@ -5,7 +5,9 @@ import Pessoas.Pessoa;
 import Pessoas.PessoaBemInformada;
 
 public class IaDestruidoraFakeNews {
-    private int x,y, cor;
+    private final int x;
+    private final int y;
+    private final int cor;
     public IaDestruidoraFakeNews(){
         cor = 6;
         this.x = 50;
